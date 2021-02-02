@@ -3,7 +3,7 @@ class Cadastrocaxambu{
     public $id_produtos_loja;
     public $genero;
     public $tipo_produto;
-    public $imagens;
+    public $imagem;
     public  $tamanho_disponivel;
     public  $peso;
     public $quantidade;

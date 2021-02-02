@@ -8,6 +8,7 @@ class GerenciadorConexao{
 
 		/* Abre uma conexão com o servidor MySQL e retorna um identificador */
 		$conexao = mysqli_connect("localhost", "root","","caxambu") or print(mysql_error());
+		
 		//or die('Não foi possível estabelecer a conexão: ' . mysql_error() );
 		
 		/* Verifica se a conexão com o banco foi bem sucedida */

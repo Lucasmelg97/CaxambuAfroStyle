@@ -41,7 +41,7 @@
     <?php 
   if(isset($_POST['cadastrar'])){
   inserecadastro();
-  echo "<script type= 'text/javascript'>alert('Enviando..');</script> ";}
+  echo "<script type= 'text/javascript'>alert('Cadastrando..');</script> ";}
 
 
   function inserecadastro(){
@@ -54,18 +54,19 @@
     $obj_insereCadastro->genero = $_POST['genero'];       
 
     $obj_insereCadastro->tipo_produto = $_POST['tipodeprdouto'];
-    $obj_insereCadastro->imagens = $_POST['arquivo'];
+    /* $obj_insereCadastro->imagem = $_POST['arquivo']; */
   
-    $obj_insereCadastro->tamanho_disponivel = $_POST['tamanhosdisponiveis'];
+    $obj_insereCadastro->tamanho_disponivel = 3;
     $obj_insereCadastro->peso = $_POST['peso'];
     $obj_insereCadastro->quantidade = $_POST['quantidade'];
     
     $obj_insereCadastro->custo = $_POST['custo'];
      
-    $obj_insereCadastro->grau_popularidade = $_POST['popularidade'];
+    $obj_insereCadastro->grau_popularidade = 1;
     
     $obj_insereCadastro->tempo_producao_dias =  $_POST['dias'];
     $obj_insereCadastro->descricao_sedutora_produto =  $_POST['descricao'];
+    
     $obj_insereCadastro->inserir($obj_insereCadastro);
 
     
@@ -99,11 +100,19 @@
                             <div class="input-group">
 
                                 <div class="rs-select2 js-select-simple select--no-search">
-
+                                    <?php 
+                                     require_once 'generoDAO.php';
+                                     $obj_resposta = new Classe_Genero_DAO();
+                                     $lista_resposta = $obj_resposta->buscaTodasChamadas();
+                                    ?>
                                     <select name="genero">
                                         <option disabled="disabled" selected="selected">Gênero</option>
-                                        <option>Feminino</option>
-                                        <option>Masculino</option>
+                                        <?php
+                                                                            foreach ($lista_resposta as $indice => $each) {
+                                                                               
+                                                                                echo "<option id=".$each->id_genero." value=".$each->id_genero.">".$each->genero."</option>";
+                                                                            }
+                                                                        ?>
 
                                     </select>
                                     <div class="select-dropdown"></div>
@@ -173,16 +182,22 @@
                             <div class="input-group">
                                 <div class="rs-select2 js-select-simple select--no-search" required
                                     class="form-control">
+                                    <?php 
+                                     require_once 'popularidadeDAO.php';
+                                     $obj_resposta = new Classe_Popularidade_DAO();
+                                     $lista_resposta = $obj_resposta->buscaTodasChamadas();
+                                    ?>
 
                                     <select name="popularidade">
                                         <option disabled="disabled" selected="selected">Grau de Popularidade da peça
                                             (intuição)
                                         </option>
-                                        <option>1 - Pouca Saída I</option>
-                                        <option>2 - Pouca Saída II</option>
-                                        <option>3 - Intermediário</option>
-                                        <option>4 - Muita Saída IV</option>
-                                        <option>5 - Muita Saída V</option>
+                                        <?php
+                                                                            foreach ($lista_resposta as $indice => $each) {
+                                                                               
+                                                                                echo "<option id=".$each->id_popularidade." value=".$each->id_popularidade.">".$each->popularidade."</option>";
+                                                                            }
+                                                                        ?>
 
 
                                     </select>
@@ -203,8 +218,12 @@
 
 
                             <div class="p-t-10">
-                                <a href="fera.html"><button class="btn btn--pill btn--brown" name="cadastrar"
+                                <a href=#><button class="btn btn--pill btn--brown" name="cadastrar"
                                         id="cadastrar">Cadastrar</button></a>
+
+                                        <a href=#><button class="btn btn--pill btn--brown" name="cadastrar"
+                                        id="cadastrar">Exportar</button></a>
+                                       
 
                             </div>
 

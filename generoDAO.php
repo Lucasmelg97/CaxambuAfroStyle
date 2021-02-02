@@ -1,8 +1,8 @@
 <?php 
-include 'classe-cadastro-caxambu.php';
+include 'classe-genero.php';
 include_once "config.php";
 
-class Classe_Cadastro_Caxambu_DAO{
+class Classe_Genero_DAO{
 
 /* Variável privada que armazena o identificador da conexão com o banco */
 private $conexao = null;
@@ -32,34 +32,21 @@ private $conexao = null;
             
 
      /*Função para inserir nova chamada na tabela produto do banco de dados*/
-    /* public function inserir($Atendimentocliente)*/
+    /* public function inserir($Genero)*/
 
-     public function inserir($Cadastrocaxambu){
+     public function inserir($Genero){
     
         
-        $insert_query =	"INSERT INTO produtos_loja(id_produtos_loja,genero, 
-          tipo_produto,
-          tamanho_disponivel, peso, quantidade,custo,grau_popularidade,tempo_producao_dias, descricao_sedutora_produto) 
+        $insert_query =	"INSERT INTO genero(id_genero,genero) 
          VALUES (DEFAULT,
-         '".$Cadastrocaxambu->genero."',
-         '".$Cadastrocaxambu->tipo_produto."',
-         
-         '".$Cadastrocaxambu->tamanho_disponivel."',
-         '".$Cadastrocaxambu->peso."',
-         '".$Cadastrocaxambu->quantidade."',
-         '".$Cadastrocaxambu->custo."',
-         '".$Cadastrocaxambu->grau_popularidade."',
-         '".$Cadastrocaxambu->tempo_producao_dias."',
-         '".$Cadastrocaxambu->descricao_sedutora_produto."'
-         
-         )"; 
+         '".$Genero->genero."')"; 
          
          /* Primeiro cria a query do MySQL */
          
         
         /* Envia a query para o banco de dados e verifica se funcionou */
-      
         
+        echo $insert_query;
         mysqli_query($this->conexao, $insert_query)
         or $_SESSION['msg'] = "Erro de SQL ao inserir atendimento.$insert_query";
 
@@ -73,10 +60,33 @@ private $conexao = null;
         }
         
      }
+     public function buscaTodasChamadas(){
+
+        /* Primeiro cria a query do MySQL */
+        $id_query = "SELECT * FROM genero";
+
+        /* Envia a query para o banco de dados e verifica se funcionou */
+        $result = mysqli_query($this->conexao, $id_query)
+        or die("Erro ao listar respostas: " . mysql_error() );
+
+         $lista = array();
+         while( $row = mysqli_fetch_array($result, MYSQLI_ASSOC) ){
+           //Cria nova instância da classe Produto
+           $retorno = new Genero();
+           //Preenche todos os campos do novo objeto
+           $retorno->id_genero = $row["id_genero"];
+           $retorno->genero = $row["genero"];
+           //Coloca no array
+           $lista[] = $retorno;
+       }
+
+       return $lista;
+
 
     
 
 
 
+}
 }
 ?>
