@@ -39,18 +39,20 @@ private $conexao = null;
         
         $insert_query =	"INSERT INTO produtos_loja(id_produtos_loja,genero, 
           tipo_produto,
-          tamanho_disponivel, peso, quantidade,custo,grau_popularidade,tempo_producao_dias, descricao_sedutora_produto) 
+           peso, quantidade,custo,grau_popularidade,tempo_producao_dias, descricao_sedutora_produto, arquivo_imagem,tamanho_disponivel) 
          VALUES (DEFAULT,
          '".$Cadastrocaxambu->genero."',
          '".$Cadastrocaxambu->tipo_produto."',
          
-         '".$Cadastrocaxambu->tamanho_disponivel."',
+        
          '".$Cadastrocaxambu->peso."',
          '".$Cadastrocaxambu->quantidade."',
          '".$Cadastrocaxambu->custo."',
          '".$Cadastrocaxambu->grau_popularidade."',
          '".$Cadastrocaxambu->tempo_producao_dias."',
-         '".$Cadastrocaxambu->descricao_sedutora_produto."'
+         '".$Cadastrocaxambu->descricao_sedutora_produto."',
+         '".$Cadastrocaxambu->imagem."',
+         '".$Cadastrocaxambu->tamanho_disponivel."'
          
          )"; 
          
@@ -59,7 +61,7 @@ private $conexao = null;
         
         /* Envia a query para o banco de dados e verifica se funcionou */
       
-        
+        /*echo $insert_query;*/
         mysqli_query($this->conexao, $insert_query)
         or $_SESSION['msg'] = "Erro de SQL ao inserir atendimento.$insert_query";
 
@@ -74,7 +76,6 @@ private $conexao = null;
         
      }
 
-    
 
 
 
