@@ -296,8 +296,8 @@ h6 {
     border-radius: 20px;
 }
 
-.btn--green {
-    background: #57b846;
+.btn--black {
+    background: #000000;
 }
 
 .btn--green:hover {

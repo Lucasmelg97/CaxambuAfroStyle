@@ -322,6 +322,8 @@
             <div class="imagem">
                 <a href="https://guetomarketing.mystrikingly.com"><img src="images/gueto.png" height="90" width="220"></a>
             </div>
+            <center><a href="Login_v3/login.php"><button class="btn btn--pill btn--black" name="sair"
+                            id="sair">Sair</button></a></center>
         </div>
         
     </div>

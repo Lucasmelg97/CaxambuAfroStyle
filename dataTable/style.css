@@ -13,7 +13,7 @@ body table {
 }
 
 .odt-main thead {
-    background-color: #45B6AF;
+    background-color: #f0c268;
     color: #fff;
     font-size: 11px;
 }
@@ -59,7 +59,7 @@ body table {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #45B6AF;
+    color: #f0c268;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -67,12 +67,12 @@ body table {
 
 .pagination a {
     text-decoration: none;
-    color: #45B6AF;
+    color: #f0c268;
 }
 
 li.odt_Pbtn.active,
 li.odt_Pbtn.active a {
-    background-color: #45B6AF;
+    background-color: #f0c268;
     color: #fff;
     cursor: context-menu;
 }

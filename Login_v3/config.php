@@ -12,7 +12,7 @@ class GerenciadorConexao{
 		//or die('Não foi possível estabelecer a conexão: ' . mysql_error() );
 		
 		/* Verifica se a conexão com o banco foi bem sucedida */
-		if( mysqli_connect_error() )
+		if( mysqli_connect_errno() )
   			echo "Falha ao conectar no banco de dados MySQL: " . mysqli_connect_error();
 		
 		/* Retorna o identificador da conexão que será utilizado mais tarde */
