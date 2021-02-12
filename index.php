@@ -1,4 +1,5 @@
-<?php session_start();?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +51,15 @@
 
   
 
-    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <?php 
+    session_start();
+   
+    if((!isset($_SESSION['usuario']))||(!isset($_SESSION['senha']))){
+        header('location:Login_v3/login.php');
+        exit();
+    }
+    else{
+    echo '<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
 
 
 
@@ -105,11 +114,14 @@
                 <a href="https://guetomarketing.mystrikingly.com"><img src="images/gueto.png" height="90"
                         width="220"></a>
             </div>
+           
+            
             <center><a href="Login_v3/login.php"><button class="btn btn--pill btn--black" name="sair"
                             id="sair">Sair</button></a></center>
+                            
         </div>
 
-    </div>
+    </div>';}?>
 
 
     <!-- Jquery JS-->

@@ -1,3 +1,10 @@
+<?php 
+    
+      session_start();
+      unset($_SESSION['usuario']);
+      unset($_SESSION['senha']);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,9 +69,10 @@
 						</button>
                       
                     </div>
-                    <center><div class="imagem">
-                <img src="images2/gueto.png" height="90" width="220">
-            </div></center>
+                    <div class="imagem">
+                    <center><a href="https://guetomarketing.mystrikingly.com"><img src="images2/gueto.png" height="90"
+                        width="220"></a></center>
+            </div>
 
                     
                 </form>
